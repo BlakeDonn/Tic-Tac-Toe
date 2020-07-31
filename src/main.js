@@ -1,2 +1,10 @@
-have a function hold a variable that holds an instantiation of the game class,
-can reference this for all the relevant game information, and can use this to assert game winning conditions
+
+//Event listeners
+window.addEventListener("load", createGame);
+
+//Event Handlesr
+createGame(){
+  var currentWins = Player.retrieveWinsFromStorage();
+  var currentGame = new Game(currentWins[0],currentWins[1])
+  var currentPlayers = new Player // not sure here
+}
