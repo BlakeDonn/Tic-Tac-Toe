@@ -2,9 +2,9 @@
 //Event listeners
 window.addEventListener("load", createGame);
 
-//Event Handlesr
+//Event Handler
 createGame(){
-  var currentWins = Player.retrieveWinsFromStorage();
-  var currentGame = new Game(currentWins[0],currentWins[1])
-  var currentPlayers = new Player // not sure here
+  var player1 = new Player(Player.retrieveWinsFromStorage('player1'));
+  var player2 = new Player(Player.retrieveWinsFromStorage('player2'));
+  var currentGame = new Game(player1, player2);
 }
