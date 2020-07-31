@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: flex-start;
+  background-color: green;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar{
+}
+
+.left{
+  /* background-color: red; */
+  width: 10%
+}
+
+.right{
+  /* background-color: red; */
+  width: 10%
+}
+
+.board-view{
+  /* background-color: yellow; */
+  width: 80%;
+}
