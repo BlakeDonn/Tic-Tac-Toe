@@ -1,14 +1,17 @@
 class Player {
-  constructor(id, token, wins) {
-    this.id = id;
-    this.token = token;
-    this.wins = wins || 0;
+  constructor(obj) {
+    this.id = obj.id;
+    this.token = obj.token;
+    this.wins = obj.wins || 0;
   }
-  saveWinsToStorage() {
-    // On every game end, add new wincount to local storage
+  saveWinsToStorage(key) {
+    var stringifiedPlayer = JSON.stringify(winningConditions);
+    localStorage.setItem(key, stringifiedPlayer);
   }
-  retrieveWinsFromStorage() {
-    // on load, pull from local storage and instantiate the two playesr with the relevant information
-    // Player.retrieve to access this
+  retrieveWinsFromStorage(key) {
+    var retrievePlayer = localStorage.getItem(key);
+    return JSON.parse(retrievePlayer);
   }
 };
+
+module.exports = Player;
