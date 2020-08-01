@@ -13,3 +13,5 @@ class Player {
     return JSON.parse(retrievePlayer);
   }
 };
+
+module.exports = Player;
