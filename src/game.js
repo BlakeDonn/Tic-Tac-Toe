@@ -17,17 +17,18 @@ class Game {
   }
   placeToken(player1, player2) {
     if (this.turn === 1) {
+      this.changeTurn()
       return this.p1Turn === 1 ? player1.token : player2.token;
     }
     if (this.turn > 1) {
-      return this.turn % 2 === 0 && this.p1Turn === 1 ? player2.token : player1.token;
+      var assetToReturn = this.turn % 2 === 0 && this.p1Turn === 1 ? player2.token :  player1.token;
     }
   }
   changeTurn() {
     if (this.turn > 8) {
       return
     }
-    this.turn++
+    else this.turn++
   }
   checkWinCondition() {
     for (var i = 0; i < 9; i ++) {
@@ -37,4 +38,4 @@ class Game {
     }
   }
 };
-// module.exports = Game;
+module.exports = Game;
