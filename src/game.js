@@ -1,12 +1,12 @@
 class Game {
   constructor(player1, player2) {
-    this.p1Wins = player1.wins
-    this.p2Wins = player2.wins
+    // this.p1Wins = player1.wins
+    // this.p2Wins = player2.wins
     this.turn = 1;
     this.placedIconLocation = [
-      'true',
-      'true',
-      'true',
+      '',
+      '',
+      '',
       '',
       '',
       '',
@@ -15,19 +15,20 @@ class Game {
       ''
     ];
   }
+
   changeTurn() {
     if (this.turn > 8) {
       return
     }
     this.turn++
     var whichPlayer = this.turn % 2 === 0 ? 1 : 2;
-    }
+  }
   checkWinCondition() {
     for (var i = 0; i < 9; i ++) {
-      placedIconLocation[i] ? placedIconLocation[i + 1] ? placedIconLocation[i + 2] : 'You win!': null;
-      placedIconLocation[i] ? placedIconLocation[i + 3] ? placedIconLocation[i + 6] : 'You win!': null;
-      placedIconLocation[i] ? placedIconLocation[i + 4] ? placedIconLocation[i + 8] : 'You win!': null;
+      this.placedIconLocation[i] && this.placedIconLocation[i + 1] && this.placedIconLocation[i + 2] ? console.log('yes!'): null;
+      this.placedIconLocation[i] && this.placedIconLocation[i + 3] && this.placedIconLocation[i + 6] ? console.log('no!'): null;
+      this.placedIconLocation[i] && this.placedIconLocation[i + 4] && this.placedIconLocation[i + 8] || this.placedIconLocation[i + 6]  ? console.log('maybe!'): null;
     }
   }
 };
-module.exports = Game;
+// module.exports = Game;
