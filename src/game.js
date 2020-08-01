@@ -2,25 +2,32 @@ class Game {
   constructor(player1, player2) {
     this.p1Wins = player1.wins
     this.p2Wins = player2.wins
-    this.turn = 0;                    /// increment, every % 2 === 0 is second players turn
-    this.placedIconLocation = [       //an array containing 9 elements, manipulate these elements to show right icon, by default hidden
-      one,                            // may have to be objects
-      two,
-      three,
-      four,
-      five,
-      six,
-      seven,
-      eight,
-      nine
+    this.turn = 1;
+    this.placedIconLocation = [
+      'true',
+      'true',
+      'true',
+      '',
+      '',
+      '',
+      '',
+      '',
+      ''
     ];
   }
-
-  placeIcon() {
-            // adjust element in array at resepective location to respective icon
-                // if player 1 placedIconLocation[i].whodunnit = p1 if play 2 opposite
-                    // check if 1,5,9 = p1, win
-                        // if turn = 8 // draw
-                            // if win, p1/2.saveWinsToStorage
+  changeTurn() {
+    if (this.turn > 8) {
+      return
+    }
+    this.turn++
+    var whichPlayer = this.turn % 2 === 0 ? 1 : 2;
+    }
+  checkWinCondition() {
+    for (var i = 0; i < 9; i ++) {
+      placedIconLocation[i] ? placedIconLocation[i + 1] ? placedIconLocation[i + 2] : 'You win!': null;
+      placedIconLocation[i] ? placedIconLocation[i + 3] ? placedIconLocation[i + 6] : 'You win!': null;
+      placedIconLocation[i] ? placedIconLocation[i + 4] ? placedIconLocation[i + 8] : 'You win!': null;
+    }
   }
 };
+module.exports = Game;
