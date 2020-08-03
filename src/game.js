@@ -1,9 +1,9 @@
 class Game {
   constructor(player1, player2) {
-    this.player1 = player1;
-    this.player2 = player2;
-    this.p1Turn = player1.wins >= player2.wins ? 1 : 2;
-    this.p2Turn = player2.wins > player1.wins ? 1 : 2;
+    this.player1 = new Player(player1);
+    this.player2 = new Player(player2);
+    this.p1Turn = this.player1.wins >= this.player2.wins ? 1 : 2;
+    this.p2Turn = this.player2.wins > this.player1.wins ? 1 : 2;
     this.turn = 1;
     this.placedIconLocation = [
       '',
@@ -29,7 +29,7 @@ class Game {
     }
   }
   updatePlacedIconLocation(test, player) {
-    this.placedIconLocation[test] = player;
+    return this.placedIconLocation[test] = player;
   }
 
   changeTurn() {
