@@ -1,22 +1,11 @@
+html {
+  height: 100vh;
+}
 body {
   display: flex;
   justify-content: flex-start;
-  /* background-color: green; */
   height: 100vh;
   width: 100vw;
-}
-
-.sidebar{
-}
-
-.left{
-  background-color: orange;
-  width: 20%
-}
-
-.right{
-  background-color: orange;
-  width: 20%
 }
 
 main {
@@ -30,50 +19,111 @@ main {
 }
 
 header {
+  display: flex;
   width: 50%;
   height: 15%;
-  margin-top: 10%;
-  background-color: blue;
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: orange;
+  width: 20%;
+  height: 100vh;
+}
+.its {
+  margin-right : 5%;
+}
+
+.turn {
+  margin-left: 5%;
+}
+
+.wins {
+  align-self: center;
+}
+
+.side {
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.player1 {
+  margin-top: 5vh;
+  height: 7.5vh;
+}
+
+.player2 {
+  margin-top: 5vh;
+  height: 7.5vh;
+}
+
+.win-token {
+  width: 25%;
+}
+
+.p1h1 {
+  background: url("https://i.imgur.com/ZhJleZK.png") no-repeat center center;
+  background-size: 90% 90%;
 }
 
 .board {
   display: grid;
+  justify-content: center;
   grid-template-columns: 33% 33% 33%;
-  margin-top: 10%;
-  height: 70%;
+  margin-top: 5%;
+  height: 75vh;
   width: 85%;
-  background-color: green;
 }
 
 .icon {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25vh;
+  max-height: 25vh;
 }
 
+.turn-token {
+  max-width: 25%;
+  max-height: 35%;
+}
+
+.board-token {
+  height: 75%;
+  width: 75%;
+}
 .one {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
 }
 .two {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
 }
 .three {
-  border-bottom: 2px solid black;
+  border-bottom: 8px solid black;
 }
 .four {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
 }
 .five {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
 }
 .six {
-  border-bottom: 2px solid black;
+  border-bottom: 8px solid black;
 }
 .seven {
-  border-right: 2px solid black;
+  border-right: 8px solid black;
 }
 .eight {
-  border-right: 2px solid black;
+  border-right: 8px solid black;
 }
