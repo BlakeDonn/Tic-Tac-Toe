@@ -8,10 +8,8 @@ class Player {
     var stringifiedPlayer = JSON.stringify(winningConditions);
     localStorage.setItem(key, stringifiedPlayer);
   }
-  retrieveWinsFromStorage(key) {
+  static retrieveWinsFromStorage(key) {
     var retrievePlayer = localStorage.getItem(key);
-    return JSON.parse(retrievePlayer);
+    return retrievePlayer != null ? JSON.parse(retrievePlayer) : [{id: 1, token: "star"}, {id: 2, token: "heart"}];
   }
 };
-
-module.exports = Player;
