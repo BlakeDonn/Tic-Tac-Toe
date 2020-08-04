@@ -11,7 +11,7 @@ var currentGame = '';
 
 //Event listeners
 window.addEventListener("load", createGame);
-gameBoard.addEventListener("mousedown", playerMove);
+gameBoard.addEventListener("click", playerMove);
 
 //Event Handler
 function createGame() {
@@ -32,10 +32,10 @@ function playerMove(){
 };
 
 function updateBoard(asset, currentPlayer){
-
   var insertedHTML = `<img class = "board-token" src = ${asset}>`
   event.target.closest(".icon").insertAdjacentHTML("afterbegin", insertedHTML)
-  currentGame.checkWinCondition(currentPlayer);
+  var result = currentGame.checkWinCondition(currentPlayer);
+  checkForWin(result)
 }
 
 function displayPlayerData(player1, player2){
@@ -50,4 +50,17 @@ function displayPlayerData(player1, player2){
 function updatePlayerData(player1, player2){
   turnToken.classList.toggle("hidden");
   turnToken2.classList.toggle("hidden");
+}
+
+function checkForWin(result){
+  if (result === '1 wins!' || result === '2 wins!'){
+    setTimeout(clearBoard, 3000);
+  }
+}
+
+function clearBoard(){
+  var resetTokens = gameBoard.querySelectorAll(".board-token");
+  for (var i = 0 ; i < resetTokens.length; i++){
+    resetTokens[i].remove();
+  }
 }
