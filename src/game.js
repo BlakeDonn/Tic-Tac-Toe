@@ -48,6 +48,7 @@ class Game {
       return false;
     }
     if (result === this.player1.token || result === this.player2.token) {
+      this.updatePlayerWins(result);
       return true;
     }
   }
