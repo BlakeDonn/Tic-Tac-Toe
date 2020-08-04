@@ -27,6 +27,10 @@ header {
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .sidebar{
   display: flex;
   flex-direction: column;
@@ -44,7 +48,10 @@ header {
   margin-left: 5%;
 }
 
-.wins {
+.wins1 {
+  align-self: center;
+}
+.wins2 {
   align-self: center;
 }
 
@@ -64,8 +71,11 @@ header {
   height: 7.5vh;
 }
 
-.win-token {
-  width: 25%;
+.token1 {
+  /* width: 25%; */
+}
+.token2 {
+  width: 45%;
 }
 
 .p1h1 {
@@ -90,7 +100,7 @@ header {
   max-height: 25vh;
 }
 
-.turn-token {
+.token {
   max-width: 25%;
   max-height: 35%;
 }
