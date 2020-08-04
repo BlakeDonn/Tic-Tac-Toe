@@ -48,11 +48,11 @@ class Game {
       this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 3] == 1 && this.placedIconLocation[i + 6] == 1 ? console.log('x wins!'): null;
       this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 3] == 2 && this.placedIconLocation[i + 6] == 2 ? console.log('0 wins!'): null;
       }
-      if (i == 0 || i == 2 ){
-      this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 4] == 1 && this.placedIconLocation[i + 8] == 1 ? console.log('x wins!'): null;
-      this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 4] == 2 && this.placedIconLocation[i + 8] == 2 ? console.log('0 wins!'): null;
-      this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 2] == 1 && this.placedIconLocation[i + 4] == 1 ? console.log('x wins!'): null;
-      this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 2] == 2 && this.placedIconLocation[i + 4] == 2 ? console.log('0 wins!'): null;
+      if (i == 6 || i == 8 ){
+      this.placedIconLocation[i] == 1 && this.placedIconLocation[i - 4] == 1 && this.placedIconLocation[i - 8] == 1 ? console.log('x wins!'): null;
+      this.placedIconLocation[i] == 2 && this.placedIconLocation[i - 4] == 2 && this.placedIconLocation[i - 8] == 2 ? console.log('0 wins!'): null;
+      this.placedIconLocation[i] == 1 && this.placedIconLocation[i - 2] == 1 && this.placedIconLocation[i - 4] == 1 ? console.log('x wins!'): null;
+      this.placedIconLocation[i] == 2 && this.placedIconLocation[i - 2] == 2 && this.placedIconLocation[i - 4] == 2 ? console.log('0 wins!'): null;
     }
   }
 }
