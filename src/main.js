@@ -12,7 +12,6 @@ var currentGame = '';
 //Event listeners
 window.addEventListener("load", createGame);
 gameBoard.addEventListener("mousedown", playerMove);
-gameBoard.addEventListener("mouseup", updatePlayerData);
 
 //Event Handler
 function createGame() {
@@ -22,15 +21,18 @@ function createGame() {
 };
 
 function playerMove(){
-  var boardLocation = event.target.id;
-  var currentPlayer = currentGame.placeToken();
-  var boardLocationToChange = currentGame.updatePlacedIconLocation(boardLocation, currentPlayer);
-  updateBoard(boardLocationToChange, currentPlayer);
-  currentGame.changeTurn();
-
+  if(event.target.hasChildNodes()){
+    var boardLocation = event.target.id;
+    var currentPlayer = currentGame.placeToken();
+    var boardLocationToChange = currentGame.updatePlacedIconLocation(boardLocation, currentPlayer);
+    updateBoard(boardLocationToChange, currentPlayer);
+    currentGame.changeTurn();
+    updatePlayerData();
+  }
 };
 
 function updateBoard(asset, currentPlayer){
+
   var insertedHTML = `<img class = "board-token" src = ${asset}>`
   event.target.closest(".icon").insertAdjacentHTML("afterbegin", insertedHTML)
   currentGame.checkWinCondition(currentPlayer);
