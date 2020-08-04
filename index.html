@@ -8,12 +8,13 @@
   <body class="">
     <aside class = "sidebar left">
       <div class="player1 side">
+        <img class = "token1" src = "assets/X.svg">
       </div>
       <h1 class = "wins1">0 wins</h1>
     </section>
   </aside>
   <main class = board-view>
-    <header>
+    <header class = "header normal-header">
       <div class="its">
         <h1>It's</h1>
       </div>
@@ -24,6 +25,17 @@
       </div>
       <div class="turn">
         <h1>Turn</h1>
+      </div>
+    </header>
+    <header class ="header win-header hidden" >
+      <img class = "turn-token token" id = "33" src = "">
+      <div class="turn">
+        <h1>Won!</h1>
+      </div>
+    </header>
+    <header class ="header draw-header hidden" >
+      <div class="turn">
+        <h1>It's a Draw!</h1>
       </div>
     </header>
     <section class ="board">
@@ -49,6 +61,7 @@
   </main>
     <aside class = "sidebar right">
         <div class="player2 side">
+          <img class = "token2" src = "assets/0.png">
         </div>
         <h1 class = "wins2">0 wins</h1>
     </aside>

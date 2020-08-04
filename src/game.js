@@ -2,39 +2,21 @@ class Game {
   constructor(player1, player2) {
     this.player1 = new Player(player1);
     this.player2 = new Player(player2);
-    this.p1Turn = this.player1.wins >= this.player2.wins ? 1 : 2;
-    this.p2Turn = this.player2.wins > this.player1.wins ? 1 : 2;
     this.turn = 1;
-    this.placedIconLocation = [
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      ''
-    ];
+    this.placedIconLocation = ['', '', '', '', '', '', '', '', ''];
   }
   placeToken() {
-    if (this.turn === 1) {
-      var firstMovePlace = this.p1Turn === 1 ? this.p1Turn : this.p2Turn;
-      return firstMovePlace;
-    }
-    if (this.turn > 1) {
-      var restOfGamePlace = this.turn % 2 === 0 && this.p1Turn === 1 ? this.p2Turn :  this.p1Turn;
-      return restOfGamePlace;
-    }
+    return this.turn % 2 == 0 ? 2 : 1;
   }
+
   updatePlacedIconLocation(index, player) {
     this.placedIconLocation[index] = player;
     return player === 1 ? this.player1.token : this.player2.token;
   }
 
   changeTurn() {
-    if (this.turn > 8) {
-      return
+    if (this.turn > 9) {
+      displayDraw();
     }
     else this.turn++
   }
@@ -65,5 +47,17 @@ class Game {
         return four;
       }
     }
+  }
+
+
+  resetBoard(){
+    this.placedIconLocation = ['', '', '', '', '', '', '', '', '']
+    this.turn = 1;
+  }
+
+  updatePlayerWins(result){
+    result.includes(1) ? this.player1.wins++ : this.player2.wins++;
+    Player.saveWinsToStorage('savedPlayers', [this.player1, this.player2])
+    displayPlayerData(this.player1, this.player2);
   }
 };

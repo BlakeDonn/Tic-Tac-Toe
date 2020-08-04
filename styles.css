@@ -18,7 +18,7 @@ main {
   width: 60%;
 }
 
-header {
+.header {
   display: flex;
   width: 50%;
   height: 15%;
@@ -51,7 +51,7 @@ header {
 .wins1 {
   align-self: center;
 }
-.wins2 {
+.wins1 {
   align-self: center;
 }
 
