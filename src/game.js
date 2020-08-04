@@ -28,17 +28,9 @@ class Game {
       if (i == 8) {
         var four =  this.boardLayout[i] == player && this.boardLayout[i - 4] == player && this.boardLayout[i - 8] == player ? player: null;
       }
-      if (one != null) {
-        return one;
-      }
-      if (two != null) {
-        return two;
-      }
-      if (three != null) {
-        return three;
-      }
-      if (four != null) {
-        return four;
+      var winner = one ? one : two ? two : three ? three: four ? four: null;
+      if (winner){
+        return winner
       }
     }
   }
