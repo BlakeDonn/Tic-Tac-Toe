@@ -41,15 +41,29 @@ class Game {
   checkWinCondition(player) {
     for (var i = 0; i < 9; i ++) {
       if (i == 0 || i == 3 || i == 6){
-      this.placedIconLocation[i] == player && this.placedIconLocation[i + 1] == player && this.placedIconLocation[i + 2] == player ? console.log(`${player} wins!`): null;
+      var one = this.placedIconLocation[i] == player && this.placedIconLocation[i + 1] == player && this.placedIconLocation[i + 2] == player ? `${player} wins!`: null;
       }
       if (i == 0 || i == 1 || i == 2){
-      this.placedIconLocation[i] == player && this.placedIconLocation[i + 3] == player && this.placedIconLocation[i + 6] == player ? console.log(`${player} wins!`): null;
+      var two =  this.placedIconLocation[i] == player && this.placedIconLocation[i + 3] == player && this.placedIconLocation[i + 6] == player ? `${player} wins!`: null;
       }
-      if (i == 6 || i == 8 ){
-      this.placedIconLocation[i] == player && this.placedIconLocation[i - 4] == player && this.placedIconLocation[i - 8] == player ? console.log(`${player} wins!`): null;
-      this.placedIconLocation[i] == player && this.placedIconLocation[i - 2] == player && this.placedIconLocation[i - 4] == player ? console.log(`${player} wins!`): null;
+      if (i == 6 ){
+      var three =  this.placedIconLocation[i] == player && this.placedIconLocation[i - 2] == player && this.placedIconLocation[i - 4] == player ? `${player} wins!`: null;
+      }
+      if (i == 8){
+      var four =  this.placedIconLocation[i] == player && this.placedIconLocation[i - 4] == player && this.placedIconLocation[i - 8] == player ? `${player} wins!`: null;
+      }
+      if (one != null){
+        return one;
+      }
+      if (two != null){
+        return two;
+      }
+      if (three != null){
+        return three;
+      }
+      if (four != null){
+        return four;
+      }
     }
   }
-}
 };
