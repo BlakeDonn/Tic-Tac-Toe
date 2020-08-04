@@ -57,7 +57,7 @@ class Game {
 
   updatePlayerWins(result){
     result.includes(1) ? this.player1.wins++ : this.player2.wins++;
-    console.log(this.player1);
-    console.log(this.player2);
+    Player.saveWinsToStorage('savedPlayers', [this.player1, this.player2])
+    displayPlayerData(this.player1, this.player2);
   }
 };
