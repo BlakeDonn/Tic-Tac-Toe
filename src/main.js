@@ -29,7 +29,7 @@ function playerMove(){
     var boardLocationToChange = currentGame.updatePlacedIconLocation(boardLocation, currentPlayer);
     currentGame.changeTurn();
     updateBoard(boardLocationToChange, currentPlayer);
-    updatePlayerData(turnToken1, turnToken2);
+    updatePlayerData(turnToken, turnToken2);
   }
 };
 
@@ -49,8 +49,10 @@ function displayPlayerData(player1, player2){
   player2Wins.innerText = `${player2.wins} wins`;
 }
 
-function displayWinningPLayer(){
+function displayWinningPayer(result){
   updatePlayerData(normalHeader, winHeader)
+  winningIMG = document.getElementById("33");
+  winningIMG.src = result.includes(1) ? "assets/X.svg" : "assets/0.png";
 }
 
 function updatePlayerData(element1, element2){
@@ -60,7 +62,7 @@ function updatePlayerData(element1, element2){
 
 function checkForWin(result){
   if (result === '1 wins!' || result === '2 wins!'){
-    displayWinningPLayer()
+    displayWinningPlayer(result)
     setTimeout(clearBoard, 3000);
     currentGame.resetBoard();
     currentGame.updatePlayerWins(result);
