@@ -48,7 +48,6 @@ function determineWinState (conditions, result) {
   if (conditions === true) {
     displayWinningPlayer(result);
     endGame();
-    currentGame.updatePlayerWins(result);
   }
 };
 
