@@ -24,15 +24,14 @@ function createGame() {
 function playerMove(){
   if(event.target.hasChildNodes()){
     var boardLocation = event.target.id;
-    var currentPlayer = currentGame.placeToken();
-    var boardLocationToChange = currentGame.updatePlacedIconLocation(boardLocation, currentPlayer);
-    currentGame.changeTurn();
-    updateBoard(boardLocationToChange, currentPlayer);
+    var currentPlayer = currentGame.changeTurn();
+    currentGame.updatePlacedIconLocation(boardLocation, currentPlayer)
+    updateBoard(currentPlayer);
   }
 };
 
-function updateBoard(asset, currentPlayer){
-  var insertedHTML = `<img class = "board-token" src = ${asset}>`
+function updateBoard(currentPlayer){
+  var insertedHTML = `<img class = "board-token" src = ${currentPlayer}>`
   event.target.closest(".icon").insertAdjacentHTML("afterbegin", insertedHTML)
   var result = currentGame.checkWinCondition(currentPlayer);
   checkForWin(result);
@@ -47,7 +46,7 @@ function displayPlayerData(player1, player2){
 function displayWinningPlayer(result){
   updatePlayerData(normalHeader, winHeader)
   winningIMG = document.getElementById("33");
-  winningIMG.src = result.includes(1) ? "assets/X.svg" : "assets/0.png";
+  winningIMG.src = result;
 }
 
 function updatePlayerData(element1, element2){
@@ -65,7 +64,7 @@ function checkForWin(result){
     displayDraw();
     endGame();
   }
-  if (result === '1 wins!' || result === '2 wins!'){
+  if (result === currentGame.player1.token || result === currentGame.player2.token){
     displayWinningPlayer(result)
     endGame()
     currentGame.updatePlayerWins(result);
