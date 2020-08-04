@@ -4,9 +4,9 @@ class Player {
     this.token = obj.token;
     this.wins = obj.wins || 0;
   }
-  saveWinsToStorage(key) {
-    var stringifiedPlayer = JSON.stringify(winningConditions);
-    localStorage.setItem(key, stringifiedPlayer);
+  static saveWinsToStorage(key, playerStats) {
+    var stringifiedPlayers = JSON.stringify(playerStats);
+    localStorage.setItem(key, stringifiedPlayers);
   }
   static retrieveWinsFromStorage(key) {
     var retrievePlayer = localStorage.getItem(key);
