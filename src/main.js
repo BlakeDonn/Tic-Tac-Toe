@@ -1,6 +1,4 @@
 var gameBoard = document.querySelector(".board");
-var player1DOM = document.querySelector(".player1")
-var player2DOM = document.querySelector(".player2")
 var turnToken = document.querySelector(".turn-token")
 var turnToken2 = document.querySelector(".turn-token2")
 var player1Wins = document.querySelector(".wins1")
@@ -29,7 +27,6 @@ function playerMove(){
     var boardLocationToChange = currentGame.updatePlacedIconLocation(boardLocation, currentPlayer);
     currentGame.changeTurn();
     updateBoard(boardLocationToChange, currentPlayer);
-    updatePlayerData(turnToken, turnToken2);
   }
 };
 
@@ -38,18 +35,15 @@ function updateBoard(asset, currentPlayer){
   event.target.closest(".icon").insertAdjacentHTML("afterbegin", insertedHTML)
   var result = currentGame.checkWinCondition(currentPlayer);
   checkForWin(result);
+  updatePlayerData(turnToken, turnToken2);
 }
 
 function displayPlayerData(player1, player2){
-  var p1Token = `<img class = "token1" src = "${player1.token}">`
-  player1DOM.insertAdjacentHTML("afterbegin", p1Token);
-  var p2Token = `<img class = "token2" src = "${player2.token}">`
-  player2DOM.insertAdjacentHTML("afterbegin", p2Token);
   player1Wins.innerText = `${player1.wins} wins`;
   player2Wins.innerText = `${player2.wins} wins`;
 }
 
-function displayWinningPayer(result){
+function displayWinningPlayer(result){
   updatePlayerData(normalHeader, winHeader)
   winningIMG = document.getElementById("33");
   winningIMG.src = result.includes(1) ? "assets/X.svg" : "assets/0.png";
@@ -66,7 +60,6 @@ function checkForWin(result){
     setTimeout(clearBoard, 3000);
     currentGame.resetBoard();
     currentGame.updatePlayerWins(result);
-
   }
 }
 
@@ -74,5 +67,13 @@ function clearBoard(){
   var resetTokens = gameBoard.querySelectorAll(".board-token");
   for (var i = 0 ; i < resetTokens.length; i++){
     resetTokens[i].remove();
+  }
+  updatePlayerData(normalHeader, winHeader)
+  resetTurnToken();
+}
+
+function resetTurnToken(){
+  if (turnToken.classList.contains("hidden")){
+    updatePlayerData(turnToken, turnToken2)
   }
 }
