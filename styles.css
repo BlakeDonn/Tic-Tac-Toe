@@ -48,7 +48,10 @@ header {
   margin-left: 5%;
 }
 
-.wins {
+.wins1 {
+  align-self: center;
+}
+.wins2 {
   align-self: center;
 }
 
