@@ -15,8 +15,8 @@ class Game {
   }
 
   changeTurn() {
-    if (this.turn > 8) {
-      return
+    if (this.turn > 9) {
+      displayDraw();
     }
     else this.turn++
   }

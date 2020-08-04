@@ -5,6 +5,7 @@ var player1Wins = document.querySelector(".wins1")
 var player2Wins = document.querySelector(".wins2")
 var normalHeader = document.querySelector(".normal-header")
 var winHeader = document.querySelector(".win-header")
+var drawHeader = document.querySelector(".draw-header")
 
 // Data Model
 var currentGame = '';
@@ -55,12 +56,19 @@ function updatePlayerData(element1, element2){
 }
 
 function checkForWin(result){
+  if (currentGame.turn === 10 && result === undefined) {
+    displayDraw();
+  }
   if (result === '1 wins!' || result === '2 wins!'){
     displayWinningPlayer(result)
     setTimeout(clearBoard, 3000);
     currentGame.resetBoard();
     currentGame.updatePlayerWins(result);
   }
+}
+
+function displayDraw(){
+  updatePlayerData(normalHeader, drawHeader)
 }
 
 function clearBoard(){
