@@ -19,7 +19,6 @@ class Game {
   }
   placeToken() {
     if (this.turn === 1) {
-      this.turn++
       var firstMovePlace = this.p1Turn === 1 ? this.p1Turn : this.p2Turn;
       return firstMovePlace;
     }
@@ -28,8 +27,9 @@ class Game {
       return restOfGamePlace;
     }
   }
-  updatePlacedIconLocation(test, player) {
-    return this.placedIconLocation[test] = player;
+  updatePlacedIconLocation(index, player) {
+    this.placedIconLocation[index] = player;
+    return player === 1 ? this.player1.token : this.player2.token;
   }
 
   changeTurn() {
@@ -40,9 +40,14 @@ class Game {
   }
   checkWinCondition() {
     for (var i = 0; i < 9; i ++) {
-      this.placedIconLocation[i] && this.placedIconLocation[i + 1] && this.placedIconLocation[i + 2] ? console.log('yes!'): null;
-      this.placedIconLocation[i] && this.placedIconLocation[i + 3] && this.placedIconLocation[i + 6] ? console.log('no!'): null;
-      this.placedIconLocation[i] && this.placedIconLocation[i + 4] && this.placedIconLocation[i + 8] || this.placedIconLocation[i + 6]  ? console.log('maybe!'): null;
+      this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 1] == 1 && this.placedIconLocation[i + 2] == 1 ? console.log('x wins!'): null;
+      this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 1] == 2 && this.placedIconLocation[i + 2] == 2 ? console.log('o wins!'): null;
+      this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 3] == 1 && this.placedIconLocation[i + 6] == 1 ? console.log('x wins!'): null;
+      this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 3] == 2 && this.placedIconLocation[i + 6] == 2 ? console.log('o wins!'): null;
+      this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 4] == 1 && this.placedIconLocation[i + 8] == 1 ? console.log('x wins!'): null;
+      this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 4] == 2 && this.placedIconLocation[i + 8] == 2 ? console.log('o wins!'): null;
+      this.placedIconLocation[i] == 1 && this.placedIconLocation[i + 2] == 1 && this.placedIconLocation[i + 4] == 1 ? console.log('x wins!'): null;
+      this.placedIconLocation[i] == 2 && this.placedIconLocation[i + 2] == 2 && this.placedIconLocation[i + 4] == 2 ? console.log('o wins!'): null;
     }
   }
 };
