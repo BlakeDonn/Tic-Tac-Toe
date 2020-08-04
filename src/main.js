@@ -5,6 +5,8 @@ var turnToken = document.querySelector(".turn-token")
 var turnToken2 = document.querySelector(".turn-token2")
 var player1Wins = document.querySelector(".wins1")
 var player2Wins = document.querySelector(".wins2")
+var normalHeader = document.querySelector(".normal-header")
+var winHeader = document.querySelector(".win-header")
 
 // Data Model
 var currentGame = '';
@@ -25,9 +27,9 @@ function playerMove(){
     var boardLocation = event.target.id;
     var currentPlayer = currentGame.placeToken();
     var boardLocationToChange = currentGame.updatePlacedIconLocation(boardLocation, currentPlayer);
-    updateBoard(boardLocationToChange, currentPlayer);
     currentGame.changeTurn();
-    updatePlayerData();
+    updateBoard(boardLocationToChange, currentPlayer);
+    updatePlayerData(turnToken1, turnToken2);
   }
 };
 
@@ -35,7 +37,7 @@ function updateBoard(asset, currentPlayer){
   var insertedHTML = `<img class = "board-token" src = ${asset}>`
   event.target.closest(".icon").insertAdjacentHTML("afterbegin", insertedHTML)
   var result = currentGame.checkWinCondition(currentPlayer);
-  checkForWin(result)
+  checkForWin(result);
 }
 
 function displayPlayerData(player1, player2){
@@ -47,14 +49,22 @@ function displayPlayerData(player1, player2){
   player2Wins.innerText = `${player2.wins} wins`;
 }
 
-function updatePlayerData(player1, player2){
-  turnToken.classList.toggle("hidden");
-  turnToken2.classList.toggle("hidden");
+function displayWinningPLayer(){
+  updatePlayerData(normalHeader, winHeader)
+}
+
+function updatePlayerData(element1, element2){
+  element1.classList.toggle("hidden");
+  element2.classList.toggle("hidden");
 }
 
 function checkForWin(result){
   if (result === '1 wins!' || result === '2 wins!'){
+    displayWinningPLayer()
     setTimeout(clearBoard, 3000);
+    currentGame.resetBoard();
+    currentGame.updatePlayerWins(result);
+
   }
 }
 
