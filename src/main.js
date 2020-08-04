@@ -51,20 +51,30 @@ function displayWinningPlayer(result){
 }
 
 function updatePlayerData(element1, element2){
+  if (element1.classList.contains("hidden") && element2.classList.contains("hidden")){
+    element1.classList.toggle("hidden");
+    drawHeader.classList.toggle("hidden");
+  }else {
   element1.classList.toggle("hidden");
   element2.classList.toggle("hidden");
+}
 }
 
 function checkForWin(result){
   if (currentGame.turn === 10 && result === undefined) {
     displayDraw();
+    endGame();
   }
   if (result === '1 wins!' || result === '2 wins!'){
     displayWinningPlayer(result)
-    setTimeout(clearBoard, 3000);
-    currentGame.resetBoard();
+    endGame()
     currentGame.updatePlayerWins(result);
   }
+}
+
+function endGame(result){
+  setTimeout(clearBoard, 3000);
+  currentGame.resetBoard();
 }
 
 function displayDraw(){
