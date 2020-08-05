@@ -30,7 +30,7 @@ class Game {
       }
       var winner = one ? one : two ? two : three ? three: four ? four: null;
       if (winner){
-        return winner
+        return winner;
       }
     }
   }
