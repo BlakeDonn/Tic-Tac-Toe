@@ -15,7 +15,7 @@ gameBoard.addEventListener("click", playerMove);
 function createGame() {
   var players = Player.retrieveWinsFromStorage('savedPlayers');
   currentGame = new Game(players[0], players[1]);
-  displayPlayerData(currentGame.player1, currentGame.player2);
+  displayPlayerWins(currentGame.player1, currentGame.player2);
 };
 
 function playerMove() {
@@ -23,12 +23,12 @@ function playerMove() {
     var boardLocation = event.target.id;
     var currentPlayer = currentGame.changeTurn();
     currentGame.updateBoardLayout(boardLocation, currentPlayer);
-    updateBoard(currentPlayer);
+    addToken(currentPlayer);
     afterTurnEval(currentPlayer);
   }
 };
 
-function updateBoard(currentPlayer) {
+function addToken(currentPlayer) {
   var insertedHTML = `<img class = "board-token" src = ${currentPlayer}>`;
   event.target.closest(".icon").insertAdjacentHTML("afterbegin", insertedHTML);
 };
@@ -36,13 +36,13 @@ function updateBoard(currentPlayer) {
 function afterTurnEval(currentPlayer) {
   var result = currentGame.checkWinCondition(currentPlayer);
   var conditions = currentGame.evaluateResult(result);
-  updatePlayerData(turnToken, turnToken2);
+  updateHeaderState(turnToken, turnToken2);
   determineWinState(conditions, result);
 };
 
 function determineWinState (conditions, result) {
   if (conditions === false) {
-    updatePlayerData(normalHeader, drawHeader);
+    updateHeaderState(normalHeader, drawHeader);
     endGame();
   }
   if (conditions === true) {
@@ -51,7 +51,7 @@ function determineWinState (conditions, result) {
   }
 };
 
-function updatePlayerData(element1, element2) {
+function updateHeaderState(element1, element2) {
   if (element1.classList.contains("hidden") && element2.classList.contains("hidden")) {
     element1.classList.toggle("hidden");
     drawHeader.classList.toggle("hidden");
@@ -62,12 +62,12 @@ function updatePlayerData(element1, element2) {
 };
 
 function displayWinningPlayer(result) {
-  updatePlayerData(normalHeader, winHeader);
+  updateHeaderState(normalHeader, winHeader);
   winningIMG = document.getElementById("33");
   winningIMG.src = result;
 };
 
-function displayPlayerData(player1, player2) {
+function displayPlayerWins(player1, player2) {
   player1Wins.innerText = `${player1.wins} wins`;
   player2Wins.innerText = `${player2.wins} wins`;
 };
@@ -86,7 +86,7 @@ function clearBoard() {
 };
 
 function setUpNewGame(){
-  updatePlayerData(normalHeader, winHeader);
+  updateHeaderState(normalHeader, winHeader);
   resetTurnToken();
   currentGame.resetBoard()
   gameBoard.addEventListener("click", playerMove)
@@ -94,6 +94,6 @@ function setUpNewGame(){
 
 function resetTurnToken() {
   if (turnToken.classList.contains("hidden")) {
-    updatePlayerData(turnToken, turnToken2);
+    updateHeaderState(turnToken, turnToken2);
   }
 };
