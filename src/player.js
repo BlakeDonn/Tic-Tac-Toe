@@ -10,6 +10,6 @@ class Player {
   }
   static retrieveWinsFromStorage(key) {
     var retrievePlayer = localStorage.getItem(key);
-    return retrievePlayer != null ? JSON.parse(retrievePlayer) : [{id: 1, token: "assets/X.svg"}, {id: 2, token: "assets/0.png"}];
+    return retrievePlayer != null ? JSON.parse(retrievePlayer) : [{id: 1, token: "assets/pica.svg"}, {id: 2, token: "assets/gengar.svg"}];
   }
 };
