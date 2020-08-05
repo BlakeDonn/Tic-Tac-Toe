@@ -102,6 +102,6 @@ https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html
 
 ### Contributor ###
 
-* [Brigette Doelp](https://github.com/BrigetteDoelp)
+* [Blake Donnelly](https://gist.github.com/BlakeDonn)
 
 
