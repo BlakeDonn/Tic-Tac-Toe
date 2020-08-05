@@ -1,6 +1,7 @@
 html {
   height: 100vh;
 }
+
 body {
   font-family: "Arial ", Gadget, sans-serif;
   color: #97AABD;
@@ -120,31 +121,39 @@ main {
   max-height: 65%;
   max-width: 65%;
 }
+
 .one {
   border-right: 8px solid #E4C580;
   border-bottom: 8px solid #E4C580;
 }
+
 .two {
   border-right: 8px solid #E4C580;
   border-bottom: 8px solid #E4C580;
 }
+
 .three {
   border-bottom: 8px solid #E4C580;
 }
+
 .four {
   border-right: 8px solid #E4C580;
   border-bottom: 8px solid #E4C580;
 }
+
 .five {
   border-right: 8px solid #E4C580;
   border-bottom: 8px solid #E4C580;
 }
+
 .six {
   border-bottom: 8px solid #E4C580;
 }
+
 .seven {
   border-right: 8px solid #E4C580;
 }
+
 .eight {
   border-right: 8px solid #E4C580;
 }
