@@ -81,6 +81,8 @@ https://gist.github.com/BlakeDonn/b7c27d9957e16285c4289dbf735dc1d7
 
 * Main.js is in charge of making sure the user sees a direct representation of our Data Model
 
+___
+
 **The Seperation of Roles**
 
 The Game Class being utilized to determine many aspects of this project meant that it had to be refined to only provide neccessary information, to to accurately access conditions. 
