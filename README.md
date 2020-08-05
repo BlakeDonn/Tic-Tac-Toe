@@ -10,7 +10,7 @@ What the project itself is, is a task to build a game of Tic-Tac-Toe from the gr
 
 * Write DRY javascript
 * Utilize event delegation 
-* Weave between the Data Modeland the DOM
+* Weave between the Data Model and the DOM
 * Utilize a Class to instantiate new players to be used within your Data Model
 * Have Data persist through Local Storage
 
