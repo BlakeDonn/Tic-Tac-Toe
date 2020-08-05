@@ -85,7 +85,7 @@ ___
 
 **The Separation of Roles**
 
-The Game Class being utilized to determine many aspects of this project meant that it had to be refined to only provide necessary information, to accurately access conditions. 
+The Game Class being utilized to determine many aspects of this project meant that it had to be refined to only provide necessary information, and only access relevant information. 
 
 The Global variable of `currentGame` is what was used by Main.js to acquire the relevant information for functions to work. Through the use of arguments and parameters such as `result`,`conditions`, `boardLocation`, and `currentPlayer` the Data Model did not have to be referenced in every function. This passing of data between relevant SRP functions was key to slimming down and refining the JavaScript in this project. This passing of information back and forth led to a firm understanding of the separation between these three JavaScript files, while the logic could be more refined, I feel this does portray a strong separation of roles.
 
