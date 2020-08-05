@@ -48,7 +48,7 @@ class Game {
   updatePlayerWins(result) {
     result.includes(this.player1.token) ? this.player1.wins++ : this.player2.wins++;
     Player.saveWinsToStorage('savedPlayers', [this.player1, this.player2]);
-    displayPlayerData(this.player1, this.player2);
+    displayPlayerWins(this.player1, this.player2);
   }
 
   resetBoard() {
