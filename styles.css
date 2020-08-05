@@ -1,7 +1,13 @@
+.font-familyP
+"Arial Black", Gadget, sans-serif
+}
+
 html {
   height: 100vh;
 }
 body {
+  font-family: "Arial ", Gadget, sans-serif;
+  color: #97AABD;
   display: flex;
   justify-content: flex-start;
   height: 100vh;
@@ -14,7 +20,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  background-color: grey;
+  background-color: #272727;
   width: 60%;
 }
 
@@ -22,7 +28,6 @@ main {
   display: flex;
   width: 50%;
   height: 15%;
-  margin-top: 3%;
   justify-content: center;
   align-items: center;
 }
@@ -36,10 +41,18 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: orange;
   width: 20%;
   height: 100vh;
 }
+
+.right {
+  background-color: #61892F;
+}
+
+.left {
+  background-color: #564F6F;
+}
+
 .its {
   margin-right : 5%;
 }
@@ -49,9 +62,11 @@ main {
 }
 
 .wins1 {
+  padding-top: 20%;
   align-self: center;
 }
-.wins1 {
+.wins2 {
+  padding-top: 20%;
   align-self: center;
 }
 
@@ -72,10 +87,10 @@ main {
 }
 
 .token1 {
-  /* width: 25%; */
+  height: 150px;
 }
 .token2 {
-  width: 45%;
+  height: 150px;;
 }
 
 .p1h1 {
@@ -88,7 +103,7 @@ main {
   justify-content: center;
   grid-template-columns: 33% 33% 33%;
   margin-top: 5%;
-  height: 75vh;
+  height: 75%;
   width: 85%;
 }
 
@@ -101,39 +116,39 @@ main {
 }
 
 .token {
-  max-width: 25%;
-  max-height: 35%;
+  max-width: 35%;
+  max-height: 55%;
 }
 
 .board-token {
-  height: 75%;
-  width: 75%;
+  max-height: 65%;
+  max-width: 65%;
 }
 .one {
-  border-right: 8px solid black;
-  border-bottom: 8px solid black;
+  border-right: 8px solid #E4C580;
+  border-bottom: 8px solid #E4C580;
 }
 .two {
-  border-right: 8px solid black;
-  border-bottom: 8px solid black;
+  border-right: 8px solid #E4C580;
+  border-bottom: 8px solid #E4C580;
 }
 .three {
-  border-bottom: 8px solid black;
+  border-bottom: 8px solid #E4C580;
 }
 .four {
-  border-right: 8px solid black;
-  border-bottom: 8px solid black;
+  border-right: 8px solid #E4C580;
+  border-bottom: 8px solid #E4C580;
 }
 .five {
-  border-right: 8px solid black;
-  border-bottom: 8px solid black;
+  border-right: 8px solid #E4C580;
+  border-bottom: 8px solid #E4C580;
 }
 .six {
-  border-bottom: 8px solid black;
+  border-bottom: 8px solid #E4C580;
 }
 .seven {
-  border-right: 8px solid black;
+  border-right: 8px solid #E4C580;
 }
 .eight {
-  border-right: 8px solid black;
+  border-right: 8px solid #E4C580;
 }
