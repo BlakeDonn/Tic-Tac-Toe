@@ -19,7 +19,7 @@ function createGame() {
 };
 
 function playerMove() {
-  if (event.target.hasChildNodes()) {
+  if (currentGame.boardLayout[event.target.id] === '') {
     var boardLocation = event.target.id;
     var currentPlayer = currentGame.changeTurn();
     currentGame.updateBoardLayout(boardLocation, currentPlayer);
@@ -72,9 +72,9 @@ function displayPlayerData(player1, player2) {
   player2Wins.innerText = `${player2.wins} wins`;
 };
 
-function endGame(result) {
+function endGame() {
+  gameBoard.removeEventListener("click", playerMove)
   setTimeout(clearBoard, 3000);
-  currentGame.resetBoard();
 };
 
 function clearBoard() {
@@ -82,8 +82,14 @@ function clearBoard() {
   for (var i = 0 ; i < resetTokens.length; i++) {
     resetTokens[i].remove();
   }
+  setUpNewGame();
+};
+
+function setUpNewGame(){
   updatePlayerData(normalHeader, winHeader);
   resetTurnToken();
+  currentGame.resetBoard()
+  gameBoard.addEventListener("click", playerMove)
 };
 
 function resetTurnToken() {
